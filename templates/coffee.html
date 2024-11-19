@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Break Animation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: white;
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .coffee-section {
+            text-align: center;
+            animation: zoomIn 1s ease-in-out;
+        }
+
+        .coffee-animation {
+            position: relative;
+            width: 200px;
+            height: 300px;
+            margin: 0 auto 20px;
+            animation: bounce 2s infinite;
+        }
+
+        .man {
+            width: 100%;
+            height: 100%;
+            background: url('https://img.freepik.com/premium-photo/3d-cartoon-man-holding-coffee-cup-showing-thumbs-up-white-background_979520-21092.jpg') no-repeat center center;
+            background-size: contain;
+            animation: man-drink 5s infinite;
+        }
+
+        @keyframes man-drink {
+            0%, 100% {
+                background-position: 0 0;
+            }
+            50% {
+                background-position: 0 -200px; /* Adjust based on the sprite sheet */
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .text-animated {
+            font-size: 1.5rem;
+            font-weight: bold;
+            animation: fade-in 4s infinite alternate;
+            color: #4e342e;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .btn-custom {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 1.2rem;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(255, 87, 34, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #e64a19;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 87, 34, 0.5);
+        }
+
+        .coffee-cup {
+            font-size: 1.5rem;
+            color: #6d4c41;
+            font-weight: 600;
+            margin-top: 20px;
+            animation: shake 1.5s ease-in-out infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% {
+                transform: rotate(0);
+            }
+            50% {
+                transform: rotate(10deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="coffee-section">
+        <div class="coffee-animation">
+            <div class="man"></div>
+        </div>
+        <p class="text-animated">"Coffee: Because adulting is hard!"</p>
+        <p class="coffee-cup">☕ Take a coffee break for 5 minutes... We'll send your user ID and password via WhatsApp soon!</p>
+        <button class="btn-custom" onclick="window.location.href='{% url 'login' %}'">Get Started</button>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
