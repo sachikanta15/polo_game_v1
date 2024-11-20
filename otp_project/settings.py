@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-esxgzw4oszbk+@c8t2-*9#r$n@oy&5a4r(_mwt5wykz1d&!(&@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app','.now.sh']
 
 
 # Application definition
@@ -123,7 +123,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Static files settings
 STATIC_URL = '/static/'  # Ensure this is correct
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]  # Ensure this points to your static folder
 
 
 # Default primary key field type
@@ -139,3 +138,6 @@ LOGIN_URL = 'admin_login'
 TWILIO_ACCOUNT_SID = 'AC7962af7a8af8963eac578f902821ed98'
 TWILIO_AUTH_TOKEN = 'a9f2315a2e5fb0b09f7c8fd543abe067'
 TWILIO_PHONE_NUMBER = '+14695356875'
+
+STATICFILES_DIRS = os.path.join(BASE_DIR, "static")  
+STATIC_root = os.path.join(BASE_DIR,'staticfiles_build','static')
