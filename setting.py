@@ -8,7 +8,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'your-default-secret-key')  # Replace 
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 # Fixed ALLOWED_HOSTS
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1,localhost,polo-game-v1-7.onrender.com').split(',')
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1,localhost,https://polo-game-v1-7.onrender.com/').split(',')
 
 # Installed Applications
 INSTALLED_APPS = [
