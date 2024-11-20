@@ -11,11 +11,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'your-default-secret-key')  # Replace 
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 # Define allowed hosts
-ALLOWED_HOSTS = [
-    "polo-game-v1-7.onrender.com",  # Add your Render domain
-    "localhost",  # For local development
-    "127.0.0.1",
-]
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1,localhost' , 'polo-game-v1-7.onrender.com').split(',')
 
 # Application definition
 INSTALLED_APPS = [
