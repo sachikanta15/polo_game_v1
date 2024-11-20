@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
- 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
- <style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://www.jquery-az.com/jquery/js/intlTelInput/intlTelInput.js"></script>
+<link href="https://www.jquery-az.com/jquery/css/intlTelInput/demo.css" rel="stylesheet" />
+<link href="https://www.jquery-az.com/jquery/css/intlTelInput/intlTelInput.css" rel="stylesheet" /> -->
+
+
+    <style>
         body {
             background: rgb(238, 174, 202);
-            background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(47, 21, 217, 0.9164040616246498) 100%);
+            background: black;
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
@@ -22,63 +30,74 @@
             align-items: center;
             height: 100vh;
         }
+
         .main-container {
             display: flex;
             width: 90%;
             max-width: 1000px;
-            background: white;
+            background: black;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
             overflow: hidden;
         }
-       .image-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: #f8f9fa; /* Light background color */
-    padding: 20px;
-    border: 2px dashed #28a745; /* Green dashed border for style */
-    border-radius: 10px;
-}
 
-.image-container h2 {
-    color: #28a745; /* WhatsApp green */
-    font-weight: bold;
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-}
+        .image-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            
 
-.image-container a {
-    font-size: 1.2rem;
-    padding: 10px 20px;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-}
+            /* Light background color */
+            padding: 20px;
 
-.image-container a:hover {
-    background-color: #218838; /* Darker green on hover */
-    color: #fff;
-}
+            /* Green dashed border for style */
+            border-radius: 10px;
+        }
+
+        .image-container h2 {
+            color: #28a745;
+            /* WhatsApp green */
+            font-weight: bold;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .image-container a {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            color: #fff;
+            
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .image-container a:hover {
+            background-color: #218838;
+            /* Darker green on hover */
+            color: #fff;
+        }
 
         .register-container {
             flex: 1;
             padding: 20px;
         }
+
         .logo {
             display: block;
             margin: 0 auto 20px;
             max-width: 120px;
         }
+
         .otp-card {
             display: flex;
             gap: 10px;
             justify-content: center;
             margin-top: 20px;
         }
+
         .otp-card input {
             width: 40px;
             height: 50px;
@@ -88,24 +107,194 @@
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
         .otp-card input:focus {
             border-color: #007bff;
             outline: none;
         }
+
         select option {
             background-repeat: no-repeat;
             background-position: left center;
             padding-left: 20px;
         }
+
+        .header-text {
+            font-weight: 600;
+            font-size: 16px;
+            color: white;
+        }
+
+        .text-yellow {
+            color: gold;
+        }
+
+        .whatsApp-icon-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .whatsApp-icon {
+
+            color: white;
+            width: 190px;
+            height: 6vh;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            border-radius: 5px;
+        }
+
+        .whatsApp-icon:hover {
+            cursor: pointer;
+        }
+
+        .inner-text-style {
+            margin-top: 1vh;
+            color: white;
+        }
+
+        .otp-div {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            border: 0.3rem solid gold;
+            border-radius: 1rem;
+        }
+
+        .otp-text {
+            color: gold;
+            margin-top: 2vh;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        .form-style {
+            margin-top: 1vh;
+            background-color: rgb(24, 23, 23);
+            color: white;
+            height: 7vh;
+            border: none;
+        }
+
+        .form-style::placeholder {
+            color: white;
+            opacity: 1;
+
+            font-size: 12px;
+        }
+
+        .register-btn {
+            width: 100%;
+            background-color: #ffd700;
+            color: black;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+
+        .sign-in {
+            color: #888;
+            text-decoration: none;
+        }
+
+        .footer-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .social-icons a {
+            font-size: 24px;
+            /* Adjust size */
+            color: gold;
+            /* White color for icons */
+            margin: 0 10px;
+            /* Spacing between icons */
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            color: #ffd700;
+            /* Change color on hover */
+        }
+
+
+        .form-select option {
+            background-repeat: no-repeat;
+            background-position: left center;
+            padding-left: 30px;
+            /* Space for the flag */
+        }
+
+        .form-select option[value="+1"] {
+            background-image: url('https://flagcdn.com/us.svg');
+        }
+
+        .form-select option[value="+44"] {
+            background-image: url('https://flagcdn.com/gb.svg');
+        }
+
+        .form-select option[value="+91"] {
+            background-image: url('https://flagcdn.com/in.svg');
+        }
+
+        .form-select option[value="+61"] {
+            background-image: url('https://flagcdn.com/au.svg');
+        }
+
+        .form-select option[value="+81"] {
+            background-image: url('https://flagcdn.com/jp.svg');
+        }
+
+        .form-select option[value="+33"] {
+            background-image: url('https://flagcdn.com/fr.svg');
+        }
+
+        .form-select option[value="+49"] {
+            background-image: url('https://flagcdn.com/de.svg');
+        }
+
+        .form-select option[value="+55"] {
+            background-image: url('https://flagcdn.com/br.svg');
+        }
+
+        .form-select option[value="+34"] {
+            background-image: url('https://flagcdn.com/es.svg');
+        }
+
+        .form-select option[value="+86"] {
+            background-image: url('https://flagcdn.com/cn.svg');
+        }
+
+        .img-text{
+            margin-top: 2vh;
+            color: gold;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+
+
+
+
         @media (max-width: 768px) {
             .main-container {
                 flex-direction: column;
             }
+
             .image-container {
                 height: 200px;
             }
         }
-         .alert-container {
+
+        .alert-container {
             position: fixed;
             top: 20px;
             right: 20px;
@@ -113,182 +302,161 @@
             width: 300px;
             display: none;
         }
-       
+
+        .is-valid {
+            border-color: #28a745;
+            /* Green color */
+        }
+
+        .is-invalid {
+            border-color: #dc3545;
+            /* Red color */
+        }
     </style>
 </head>
+
 <body>
-      
+
 
     <div class="main-container">
-
-    
-
         <!-- Image Section -->
         <div class="image-container d-flex flex-column justify-content-center align-items-center text-center">
-            <h2>Create an account easily on WhatsApp</h2>
-            <a href="https://wa.me/916370493817?text=Hi,%20please%20help%20me%20create%20an%20account.%20I%20need%20a%20user%20ID%20and%20password." 
-               target="_blank" 
-               class="btn btn-success mt-3">
-                <i class="bi bi-whatsapp"></i> Go to WhatsApp
-            </a>
+            <img style="height: 50%;" src="../static/images//mobileImg.png" alt="">
+            <div>
+                <p class="img-text">100% Fast Withdrawal</p>
+            </div>
+            <div style="display: flex; gap: 1vw;">
+                <i class="bi bi-upc-scan"> UPI</i>  <!-- Example icon for UPI -->
+                <i class="bi bi-phone"> PhonePe</i>      <!-- Example icon for PhonePe -->
+                <i class="bi bi-google">Pay</i>     <!-- Example icon for GPay -->
+                <i class="bi bi-bank"> Banks</i>       <!-- Example icon for Bank Transfer -->
+                <i class="bi bi-credit-card"> Visa</i> <!-- Example icon for PayTM -->
+                
+                
+            </div>
+            <div>
+                <button type="button" style="border-radius: 2rem;" class="register-btn">How To Register ?</button>
+            </div>
         </div>
+        
 
         <!-- Form Section -->
         <div class="register-container">
             <!-- Logo -->
-           <div class="container mt-3">
-    <div id="success-alert" class="alert alert-success alert-dismissible fade d-none" role="alert">
-        <span id="success-message"></span>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    <div id="error-alert" class="alert alert-danger alert-dismissible fade d-none" role="alert">
-        <span id="error-message"></span>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-</div>
+            <div class="container mt-3">
+                <div id="success-alert" class="alert alert-success alert-dismissible fade d-none" role="alert">
+                    <span id="success-message"></span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <div id="error-alert" class="alert alert-danger alert-dismissible fade d-none" role="alert">
+                    <span id="error-message"></span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
 
+            <h2 class="text-center header-text">Now <span class="text-yellow">create</span> an account easily on <span
+                    class="text-yellow">whatsApp</span></h2>
+            <div class="whatsApp-icon-wrapper">
+                <a target="_blank" class="btn btn-success mt-3"
+                    href="https://wa.me/916370493817?text=Hi,%20please%20help%20me%20create%20an%20account.%20I%20need%20a%20user%20ID%20and%20password.">
 
-            <h2 class="text-center">Sign up</h2>
-             <div class="text-center mb-4">
-            <p>Already have an account? <a href="{% url 'login' %}" class="text-primary">Login</a></p>
-        </div>
-
-
+                    <div class="whatsApp-icon"><i style="padding: 10px;" class="bi bi-whatsapp"></i> For Instant ID
+                    </div>
+                </a>
+            </div>
+            <div class="text-center mb-4">
+                <p class="inner-text-style">Or For Self Registration</p>
+            </div>
+            <div class="otp-div">
+                <p class="otp-text">By OTP</p>
+            </div>
             <form id="register-form" method="POST">
                 {% csrf_token %}
 
-                <!-- Username Row -->
-    <div class="mb-3">
-    <label for="username" class="form-label">Username</label>
-    <div class="input-group">
-        <span class="input-group-text"><i class="bi bi-person"></i></span>
-        <input type="text" id="username" name="username" class="form-control" 
-               minlength="2" maxlength="8" pattern="[A-Za-z0-9]+" 
-               title="Username must be 2-8 characters and contain only letters and numbers" required>
-    </div>
-    <div class="invalid-feedback">
-        Username must be 2–8 characters and contain only letters and numbers.
-    </div>
-</div>
-
-<script>
-    const usernameInput = document.getElementById('username');
-
-    usernameInput.addEventListener('input', function() {
-        if (usernameInput.checkValidity()) {
-            usernameInput.classList.add('is-valid');
-            usernameInput.classList.remove('is-invalid');
-        } else {
-            usernameInput.classList.add('is-invalid');
-            usernameInput.classList.remove('is-valid');
-        }
-    });
-</script>
-
-<style>
-    .is-valid {
-        border-color: #28a745; /* Green color */
-    }
-
-    .is-invalid {
-        border-color: #dc3545; /* Red color */
-    }
-</style>
-
-              <div class="mb-3">
-    <label for="site" class="form-label">Select Site</label>
-    <div class="input-group">
-        <!-- Bootstrap Icon -->
-        <span class="input-group-text"><i class="bi bi-globe"></i></span>
-        
-<select id="site" name="site" class="form-select" required>
-    <option value="" disabled selected>Select a site to visit</option>
-    <option value="Real Sport 9">Real Sport 9</option>
-    <option value="Sky Exchange">Sky Exchange</option>
-    <option value="World 77">World 77</option>
-    <option value="Real Sport 247">Real Sport 247</option>
-    <option value="Tiger 365">Tiger 365</option>
-</select>
-
-
-
-        <!-- Validation Feedback -->
-        <div class="invalid-feedback">
-            Please select a site.
-        </div>
-    </div>
-</div>
-
-                <!-- Country Code, Phone Number, and Get OTP in One Row -->
                 <div class="mb-3">
-                    <label for="phone-details" class="form-label">Phone Details (WhatsApp No)</label>
-                    <div class="row g-2">
+                    <div class="input-group">
+                        <input type="text" id="username" name="username" placeholder="Enter Your Name"
+                            class="form-control form-style" minlength="2" maxlength="8" pattern="[A-Za-z0-9]+"
+                            title="Username must be 2-8 characters and contain only letters and numbers" required>
+                    </div>
+                    <div class="invalid-feedback">
+                        Username must be 2–8 characters and contain only letters and numbers.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="row">
                         <!-- Country Code -->
                         <div class="col-md-4">
                             <div class="input-group">
-                                <span class="input-group-text"><i class="bi bi-flag"></i></span>
-                                <select id="country_code" name="country_code" class="form-select" required>
-                                    <option value="">Code</option>
-                                    <option value="+1" data-flag="🇺🇸">🇺🇸 +1</option>
-                                    <option value="+44" data-flag="🇬🇧">🇬🇧 +44</option>
-                                    <option value="+91" data-flag="🇮🇳">🇮🇳 +91</option>
-                                    <option value="+61" data-flag="🇦🇺">🇦🇺 +61</option>
-                                    <option value="+81" data-flag="🇯🇵">🇯🇵 +81</option>
-                                    <option value="+33" data-flag="🇫🇷">🇫🇷 +33</option>
-                                    <option value="+49" data-flag="🇩🇪">🇩🇪 +49</option>
-                                    <option value="+55" data-flag="🇧🇷">🇧🇷 +55</option>
-                                    <option value="+34" data-flag="🇪🇸">🇪🇸 +34</option>
-                                    <option value="+86" data-flag="🇨🇳">🇨🇳 +86</option>
+                                <select id="country_code" name="country_code" class="form-select form-style" required>
+                                    <option value="">Select Country</option>
+                                    <option value="+1" data-flag="🇺🇸">United States (+1)</option>
+                                    <option value="+44" data-flag="🇬🇧">United Kingdom (+44)</option>
+                                    <option value="+91" data-flag="🇮🇳">India (+91)</option>
+                                    <option value="+61" data-flag="🇦🇺">Australia (+61)</option>
+                                    <option value="+81" data-flag="🇯🇵">Japan (+81)</option>
+                                    <option value="+33" data-flag="🇫🇷">France (+33)</option>
+                                    <option value="+49" data-flag="🇩🇪">Germany (+49)</option>
+                                    <option value="+55" data-flag="🇧🇷">Brazil (+55)</option>
+                                    <option value="+34" data-flag="🇪🇸">Spain (+34)</option>
+                                    <option value="+86" data-flag="🇨🇳">China (+86)</option>
                                 </select>
                             </div>
                         </div>
 
+
                         <!-- Phone Number -->
-                       <div class="col-md-5">
-    <div class="input-group">
-        <span class="input-group-text"><i class="bi bi-telephone"></i>
-</span>
-        <input type="text" id="phone_number" name="phone_number" class="form-control" 
-               pattern="^[0-9]{10}$" title="Please enter a valid 10-digit mobile number" required>
-    </div>
-    <div class="invalid-feedback">
-        Please enter a valid 10-digit mobile number.
-    </div>
-</div>
-
-<script>
-    const phoneNumberInput = document.getElementById('phone_number');
-
-    phoneNumberInput.addEventListener('input', function() {
-        if (phoneNumberInput.checkValidity()) {
-            phoneNumberInput.classList.add('is-valid');
-            phoneNumberInput.classList.remove('is-invalid');
-        } else {
-            phoneNumberInput.classList.add('is-invalid');
-            phoneNumberInput.classList.remove('is-valid');
-        }
-    });
-</script>
-
-<style>
-    .is-valid {
-        border-color: #28a745; /* Green color */
-    }
-
-    .is-invalid {
-        border-color: #dc3545; /* Red color */
-    }
-</style>
-
-
+                        <div class="col-md-5">
+                            <div class="form-style" style="width: 168%; border-radius: 5px;">
+                                <input type="text" id="phone_number" name="phone_number" class="form-control form-style""
+                                    placeholder=" Enter Your Whatsapp Number" pattern="^[0-9]{10}$"
+                                    title="Please enter a valid 10-digit mobile number" required>
+                            </div>
+                            <div class="invalid-feedback">
+                                Please enter a valid 10-digit mobile number.
+                            </div>
+                        </div>
                         <!-- Get OTP Button -->
-                        <div class="col-md-3">
-                            <button type="button" id="get-otp-btn" class="btn btn-primary w-100">
-                                <i class="fas fa-key"></i> Get OTP
-                            </button>
+
+                    </div>
+                </div>
+
+                <div class="mb-3">
+
+                    <div class="input-group">
+                        <!-- Bootstrap Icon -->
+
+
+                        <select id="site" name="site" class="form-select form-style" required>
+                            <option value="" disabled selected>Select a site to visit</option>
+                            <option value="Real Sport 9">Real Sport 9</option>
+                            <option value="Sky Exchange">Sky Exchange</option>
+                            <option value="World 77">World 77</option>
+                            <option value="Real Sport 247">Real Sport 247</option>
+                            <option value="Tiger 365">Tiger 365</option>
+                        </select>
+
+                        <!-- Validation Feedback -->
+                        <div class="invalid-feedback">
+                            Please select a site.
                         </div>
                     </div>
                 </div>
+                <button type="button" class="register-btn">Register</button>
+                <div class="footer-wrapper">
+                    <a href="#" class="sign-in">Do have an account? Sign In</a>
+                </div>
+                <div class="social-icons" style="text-align: center; margin-top: 20px;">
+                    <a href="#" target="_blank"><i class="bi bi-facebook"></i></a>
+                    <a href="#" target="_blank"><i class="bi bi-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                    <a href="#" target="_blank"><i class="bi bi-telegram"></i></a>
+                    <a href="#" target="_blank"><i class="bi bi-twitter"></i></a> <!-- Example -->
+                </div>
+
+                <!-- Country Code, Phone Number, and Get OTP in One Row -->
+
             </form>
 
             <!-- OTP Verification Section -->
@@ -307,165 +475,205 @@
 
             <!-- Submit Section -->
             <div id="submit-section" class="d-none">
-                <button type="submit" id="submit-btn" class="btn btn-success w-100 mt-3">Submit</button>
+                <button type="button" class="register-btn">Register</button>
             </div>
         </div>
-        
+
     </div>
-
-<!-- Include Font Awesome -->
-
-
 
     <!-- Bootstrap JS and jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      $(document).ready(function () {
-    function showAlert(type, message) {
-        const alertId = type === 'success' ? '#success-alert' : '#error-alert';
-        $(alertId).find('span').text(message);
-        $(alertId).removeClass('d-none').addClass('show');
-        setTimeout(() => {
-            $(alertId).removeClass('show').addClass('d-none');
-        }, 5000); // Auto-hide after 5 seconds
-    }
+        $(document).ready(function () {
+            function showAlert(type, message) {
+                const alertId = type === 'success' ? '#success-alert' : '#error-alert';
+                $(alertId).find('span').text(message);
+                $(alertId).removeClass('d-none').addClass('show');
+                setTimeout(() => {
+                    $(alertId).removeClass('show').addClass('d-none');
+                }, 5000); // Auto-hide after 5 seconds
+            }
 
-    // Handle Get OTP
-    $('#get-otp-btn').click(function () {
-        const countryCode = $('#country_code').val();
-        const phoneNumber = $('#phone_number').val();
+            // Handle Get OTP
+            $('#get-otp-btn').click(function () {
+                const countryCode = $('#country_code').val();
+                const phoneNumber = $('#phone_number').val();
 
-        if (!countryCode || !phoneNumber) {
-            showAlert('error', 'Phone number and country code are required');
-            return;
-        }
-
-        $.ajax({
-            url: '{% url "get_otp" %}',
-            method: 'POST',
-            data: {
-                country_code: countryCode,
-                phone_number: phoneNumber,
-                csrfmiddlewaretoken: '{{ csrf_token }}',
-            },
-            success: function (response) {
-                if (response.status === 'success') {
-                    $('#otp-section').removeClass('d-none');
-                    $('#get-otp-btn').prop('disabled', true);
-                    showAlert('success', 'OTP sent successfully');
-                } else {
-                    showAlert('error', response.message);
+                if (!countryCode || !phoneNumber) {
+                    showAlert('error', 'Phone number and country code are required');
+                    return;
                 }
-            },
-            error: function () {
-                showAlert('error', 'An error occurred while sending OTP');
-            },
-        });
-    });
 
-    // Handle Verify OTP
-    $('#verify-otp-btn').click(function () {
-        const otp = Array.from(document.querySelectorAll('.otp-input')).map(input => input.value).join('');
-        const countryCode = $('#country_code').val();
-        const phoneNumber = $('#phone_number').val();
+                $.ajax({
+                    url: '{% url "get_otp" %}',
+                    method: 'POST',
+                    data: {
+                        country_code: countryCode,
+                        phone_number: phoneNumber,
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                    },
+                    success: function (response) {
+                        if (response.status === 'success') {
+                            $('#otp-section').removeClass('d-none');
+                            $('#get-otp-btn').prop('disabled', true);
+                            showAlert('success', 'OTP sent successfully');
+                        } else {
+                            showAlert('error', response.message);
+                        }
+                    },
+                    error: function () {
+                        showAlert('error', 'An error occurred while sending OTP');
+                    },
+                });
+            });
 
-        if (otp.length < 6) {
-            showAlert('error', 'Please enter the full OTP');
-            return;
-        }
+            // Handle Verify OTP
+            $('#verify-otp-btn').click(function () {
+                const otp = Array.from(document.querySelectorAll('.otp-input')).map(input => input.value).join('');
+                const countryCode = $('#country_code').val();
+                const phoneNumber = $('#phone_number').val();
 
-        $.ajax({
-            url: '{% url "verify_otp" %}',
-            method: 'POST',
-            data: {
-                otp: otp,
-                country_code: countryCode,
-                phone_number: phoneNumber,
-                csrfmiddlewaretoken: '{{ csrf_token }}',
-            },
-            success: function (response) {
-                if (response.status === 'success') {
-                    $('#submit-section').removeClass('d-none');
-                    $('#otp-section').addClass('d-none');
-                    showAlert('success', 'OTP verified successfully');
-                } else {
-                    showAlert('error', response.message);
+                if (otp.length < 6) {
+                    showAlert('error', 'Please enter the full OTP');
+                    return;
                 }
-            },
-            error: function () {
-                showAlert('error', 'An error occurred while verifying OTP');
-            },
+
+                $.ajax({
+                    url: '{% url "verify_otp" %}',
+                    method: 'POST',
+                    data: {
+                        otp: otp,
+                        country_code: countryCode,
+                        phone_number: phoneNumber,
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                    },
+                    success: function (response) {
+                        if (response.status === 'success') {
+                            $('#submit-section').removeClass('d-none');
+                            $('#otp-section').addClass('d-none');
+                            showAlert('success', 'OTP verified successfully');
+                        } else {
+                            showAlert('error', response.message);
+                        }
+                    },
+                    error: function () {
+                        showAlert('error', 'An error occurred while verifying OTP');
+                    },
+                });
+            });
+
+            // Handle Submit Form
+            $('#submit-btn').click(function () {
+                const username = $('#username').val();
+                const countryCode = $('#country_code').val();
+                const phoneNumber = $('#phone_number').val();
+
+                $.ajax({
+                    url: '{% url "create_user" %}',
+                    method: 'POST',
+                    data: {
+                        username: username,
+                        country_code: countryCode,
+                        phone_number: phoneNumber,
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                    },
+                    success: function (response) {
+                        if (response.status === 'success') {
+                            showAlert('success', 'User registered successfully');
+                            setTimeout(() => window.location.href = '/', 2000); // Redirect after 2 seconds
+                        } else {
+                            showAlert('error', response.message);
+                        }
+                    },
+                    error: function () {
+                        showAlert('error', 'An error occurred during registration');
+                    },
+                });
+            });
         });
-    });
 
-    // Handle Submit Form
-    $('#submit-btn').click(function () {
-        const username = $('#username').val();
-        const countryCode = $('#country_code').val();
-        const phoneNumber = $('#phone_number').val();
 
-        $.ajax({
-            url: '{% url "create_user" %}',
-            method: 'POST',
-            data: {
-                username: username,
-                country_code: countryCode,
-                phone_number: phoneNumber,
-                csrfmiddlewaretoken: '{{ csrf_token }}',
-            },
-            success: function (response) {
-                if (response.status === 'success') {
-                    showAlert('success', 'User registered successfully');
-                    setTimeout(() => window.location.href = '/', 2000); // Redirect after 2 seconds
+        document.getElementById('register-form').addEventListener('submit', async function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const formData = new FormData(this);
+            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+            try {
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': csrfToken
+                    },
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (result.status === 'success') {
+                    // Redirect to the login page
+                    window.location.href = result.redirect_url;
                 } else {
-                    showAlert('error', response.message);
+                    // Display error message
+                    const errorAlert = document.getElementById('error-alert');
+                    document.getElementById('error-message').innerText = result.message;
+                    errorAlert.classList.remove('d-none');
+                    errorAlert.classList.add('show');
                 }
-            },
-            error: function () {
-                showAlert('error', 'An error occurred during registration');
-            },
+            } catch (error) {
+                console.error('Error during form submission:', error);
+            }
         });
-    });
-});
-
-
-document.getElementById('register-form').addEventListener('submit', async function (event) {
-    event.preventDefault(); // Prevent default form submission
-
-    const formData = new FormData(this);
-    const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-
-    try {
-        const response = await fetch(this.action, {
-            method: 'POST',
-            headers: {
-                'X-CSRFToken': csrfToken
-            },
-            body: formData
-        });
-
-        const result = await response.json();
-
-        if (result.status === 'success') {
-            // Redirect to the login page
-            window.location.href = result.redirect_url;
-        } else {
-            // Display error message
-            const errorAlert = document.getElementById('error-alert');
-            document.getElementById('error-message').innerText = result.message;
-            errorAlert.classList.remove('d-none');
-            errorAlert.classList.add('show');
-        }
-    } catch (error) {
-        console.error('Error during form submission:', error);
-    }
-});
 
 
     </script>
 
 
-    
+    <script>
+        const usernameInput = document.getElementById('username');
+
+        usernameInput.addEventListener('input', function () {
+            if (usernameInput.checkValidity()) {
+                usernameInput.classList.add('is-valid');
+                usernameInput.classList.remove('is-invalid');
+            } else {
+                usernameInput.classList.add('is-invalid');
+                usernameInput.classList.remove('is-valid');
+            }
+        });
+    </script>
+
+
+    <script>
+        const phoneNumberInput = document.getElementById('phone_number');
+
+        phoneNumberInput.addEventListener('input', function () {
+            if (phoneNumberInput.checkValidity()) {
+                phoneNumberInput.classList.add('is-valid');
+                phoneNumberInput.classList.remove('is-invalid');
+            } else {
+                phoneNumberInput.classList.add('is-invalid');
+                phoneNumberInput.classList.remove('is-valid');
+            }
+        });
+    </script>
+
+    <!-- <script>
+
+    $("#mobile-number").intlTelInput({
+        initialCountry: "auto",
+        geoIpLookup: function(callback) {
+          $.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
+            var countryCode = (resp && resp.country) ? resp.country : "";
+            callback(countryCode);
+          });
+        },
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/utils.js" // just for formatting/placeholders etc
+      });
+
+</script> -->
+
 </body>
+
 </html>

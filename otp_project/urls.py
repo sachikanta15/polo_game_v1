@@ -24,6 +24,5 @@ urlpatterns = [
      path('admin-logout/', views.admin_logout, name='admin_logout'),
 ]
 
-
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
