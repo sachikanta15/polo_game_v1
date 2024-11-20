@@ -1,4 +1,268 @@
+
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good Things Take Time</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #111;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .illustration {
+            border-radius: 2rem;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .character {
+            width: 180px;
+            height: 180px;
+            background-color: #E97451;
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .right-content {
+            flex-grow: 1;
+        }
+
+        .message {
+            background-color: #222;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            border: 2px dashed #444;
+            text-align: left;
+        }
+
+        .message h1 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-family: 'Comic Sans MS', cursive;
+            letter-spacing: 1px;
+        }
+
+        .message p {
+            color: #ccc;
+            line-height: 1.6;
+            font-size: 1.4rem;
+            text-align: center;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .time-block {
+            background-color: white;
+            color: black;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            min-width: 100px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .time-block .number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            font-family: monospace;
+        }
+
+        .time-block .label {
+            font-size: 0.8rem;
+            color: #666;
+            text-transform: uppercase;
+            margin-top: 0.5rem;
+        }
+
+        .post-container {
+            display: none;
+        }
+
+        @media (max-width: 767px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+            
+            .countdown {
+                flex-wrap: wrap;
+            }
+            
+            .time-block {
+                min-width: 80px;
+            }
+            
+            .time-block .number {
+                font-size: 2rem;
+            }
+
+            .message {
+                text-align: center;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 3rem;
+            }
+
+            .content-wrapper {
+                flex-direction: row;
+                text-align: left;
+                gap: 4rem;
+            }
+
+            .illustration {
+                margin: 0;
+            }
+
+            .countdown {
+                /* justify-content: flex-start; */
+                justify-content: center;
+            }
+
+            .message {
+                margin-bottom: 3rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 4rem;
+            }
+
+            .content-wrapper {
+                gap: 6rem;
+            }
+
+            .message h1 {
+                font-size: 2.2rem;
+            }
+
+            .message p {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="countdown-ui">
+        <div class="content-wrapper">
+            <div class="illustration">
+                <img src="man_with_coffee_image.png" alt="man_with_coffee_image" />
+            </div>
+
+            <div class="right-content">
+                <div class="message">
+                    <h1>GOOD THINGS TAKE TIME!</h1>
+                    <p class="sub-message">We're setting things up for you. Take a sip of coffee while we stir things up for you. Just <b> 5 minutes</b> to perfection.</p>
+                </div>
+
+                <div class="countdown">
+                    <div class="time-block">
+                        <div class="number" id="days">00</div>
+                        <div class="label">Days</div>
+                    </div>
+                    <div class="time-block">
+                        <div class="number" id="hours">00</div>
+                        <div class="label">Hours</div>
+                    </div>
+                    <div class="time-block">
+                        <div class="number" id="minutes">05</div>
+                        <div class="label">Minutes</div>
+                    </div>
+                    <div class="time-block">
+                        <div class="number" id="seconds">00</div>
+                        <div class="label">Seconds</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container post-container" id="post-ui">
+        <div class="content-wrapper">
+            <div class="illustration">
+                <img src="../static/images/man_with_coffee_image.png" alt="man_with_coffee_image" />
+            </div>
+
+            <div class="right-content">
+                <div class="message">
+                    <h1>GOOD TIME STARTED!</h1>
+                    <p>You’re all set. Just press login and play your game.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const countdownUI = document.getElementById('countdown-ui');
+        const postUI = document.getElementById('post-ui');
+        const minutesElement = document.getElementById('minutes');
+        const secondsElement = document.getElementById('seconds');
+
+        let totalTime = 5 * 60; 
+
+        function updateCountdown() {
+            const minutes = Math.floor(totalTime / 60);
+            const seconds = totalTime % 60;
+
+            minutesElement.textContent = minutes.toString().padStart(2, '0');
+            secondsElement.textContent = seconds.toString().padStart(2, '0');
+
+            if (totalTime <= 0) {
+                clearInterval(timer);
+                countdownUI.style.display = 'none';
+                postUI.style.display = 'block'; 
+            }
+
+            totalTime--;
+        }
+
+        const timer = setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -133,4 +397,4 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
+</html> -->
